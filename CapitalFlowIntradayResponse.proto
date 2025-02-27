@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message CapitalFlowIntradayResponse {
+  message CapitalFlowLine {
+    string inflow = 1;
+    int64 timestamp = 2;
+  }
+  string symbol = 1;
+  repeated CapitalFlowLine capital_flow_lines = 2;
+}
