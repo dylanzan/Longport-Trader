@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
 
+from GrokAI import GrokAiX
+
 from longport.openapi import QuoteContext, Config
 
 from __init__ import LONGPORT_API_ACCESS_TOKEN, LONGPORT_API_APP_KEY, LONGPORT_API_APP_SECRET
@@ -24,6 +26,12 @@ data_list = [
 
 print(data_list)
 
+grok_ai= GrokAiX()
+
+response=grok_ai.get_response("将提供的数据整理出来，按小时统计，然后根据统计结果帮我分析未来一天内的股票走向：{}".format(data_list))
+print(response)
+
+'''
 # 提取时间戳和流入数据
 timestamps = [item['timestamp'] for item in data_list]
 inflows = [item['inflow'] for item in data_list]
@@ -52,3 +60,6 @@ plt.legend()
 # 显示图形
 plt.tight_layout()
 plt.show()
+
+
+'''
